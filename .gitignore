@@ -1,5 +1,7 @@
 # Ignore environment variables
 .env
+cert.pem
+key.pem
 
 # Other things you fit ignore
 __pycache__/

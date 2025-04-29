@@ -29,19 +29,26 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 
-ALLOWED_HOSTS = ['careermattersng.onrender.com/'] if not DEBUG else ['*']
+ALLOWED_HOSTS = ['careermattersng.onrender.com','localhost', '127.0.0.1'] 
 
-SECURE_SSL_REDIRECT = not DEBUG
-SESSION_COOKIE_SECURE = not DEBUG
-CSRF_COOKIE_SECURE = not DEBUG
+# SECURE_SSL_REDIRECT = False
+# SESSION_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
 
 DATABASES = {
     'default': dj_database_url.parse(
         config('DATABASE_URL'),
         conn_max_age=600,
-        ssl_require=True
+        # ssl_require=True
     )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 
@@ -59,7 +66,8 @@ INSTALLED_APPS = [
     # installed apps 
     'rest_framework',
     'corsheaders',
-
+    'django_extensions',
+    'sslserver',
     'rest_framework_simplejwt.token_blacklist',
 
     'users',
@@ -112,20 +120,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 
-DATABASES['default']['OPTIONS'] = {
-    'sslmode': 'require',
-    'sslrootcert': '/full/path/to/root.crt'
+# DATABASES['default']['OPTIONS'] = {
+#     'sslmode': 'require',
+#     'sslrootcert': '/full/path/to/root.crt'
 
-}
+# }
 
 
 # Security best practices
-SECURE_SSL_REDIRECT = True
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-X_FRAME_OPTIONS = 'DENY'
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# X_FRAME_OPTIONS = 'DENY'
 
 
 
