@@ -116,14 +116,14 @@ def send_welcome_email(email, username):
     html_body = f"""
     <!DOCTYPE html>
     <html lang="en">
-    <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7f7f7; padding: 30px; color: #333;">
-        <div style="background-color: #ffffff; width: 100%; max-width: 650px; margin: auto; border-radius: 10px; padding: 40px; box-shadow: 0 6px 18px rgba(0,0,0,0.1);">
+    <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f7f7f7; padding: 40px 0px;  ; color: #333;">
+            <div style="background-color: #ffffff; max-width: 600px;  margin: auto; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
-            <h2 style="color: #000080; font-weight: bold; margin-bottom: 24px;">Welcome to CareermatterNG, {username}!</h2>
+            <h2 style="color: #000080; font-weight: bolder; margin-bottom: 20px;">Welcome to CareermatterNG, {username}!</h2>
             <p style="font-size: 16px; line-height: 1.8;">We’re thrilled to have you on board. You are now part of a community built for passionate freelancers, remote workers, and businesses seeking exceptional talent across Nigeria and beyond.</p>
 
             <p style="font-size: 16px; line-height: 1.8; list-style-type:none;">As a member, you can:</p>
-            <ul style="font-size: 16px; line-height: 1.8; padding-left: 20px;">
+            <ul style="font-size: 16px; line-height: 1.8; padding-left: 20px; list-style-type: none;">
                 <li>✅ Create a professional profile to showcase your skills and experience</li>
                 <li>✅ Browse hundreds of freelance, contract, and remote job listings</li>
                 <li>✅ Submit and manage proposals</li>
@@ -133,16 +133,14 @@ def send_welcome_email(email, username):
             <p style="font-size: 16px; line-height: 1.8;">Start your journey with us today:</p>
 
             <div style="text-align: center; margin: 30px 0;">
-                <a href="https://careersng.netlify.app/login" style="background-color: #000080; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                <a href="https://careersng.netlify.app/login" style="background-color: #05057a; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
                     Go to Your Dashboard 🚀
                 </a>
             </div>
 
-            <p style="font-size: 16px; line-height: 1.8;">Need any assistance? Our friendly support team is ready to help. Reach us directly at <a href="mailto:support@careermatterng.com" style="color: #000080;">support@careermatterng.com</a>.</p>
+            <p style="font-size: 16px; line-height: 1.8;">Need any assistance? Our friendly support team is ready to help. Reach us directly at <a href="mailto:support@careermatterng.com" style="color: #000080aa;">support@careermatterng.com</a>.</p>
 
-            <p style="font-size: 16px; line-height: 1.8;">Once again, welcome aboard. Let’s build great careers and projects together!</p>
 
-            <p style="font-size: 16px; line-height: 1.8;">Cheers,<br/>The CareermatterNG Team</p>
 
             <hr style="margin: 40px 0; border: none; border-top: 1px solid #e0e0e0;" />
             <p style="font-size: 12px; color: #888888; text-align: center;">
@@ -153,6 +151,8 @@ def send_welcome_email(email, username):
     </body>
     </html>
     """
+
+
 
     url = "https://api.brevo.com/v3/smtp/email"
     headers = {
