@@ -66,8 +66,8 @@ INSTALLED_APPS = [
     # installed apps 
     'rest_framework',
     'corsheaders',
-    'django_extensions',
-    'sslserver',
+    # 'django_extensions',
+    # 'sslserver',
     'rest_framework_simplejwt.token_blacklist',
 
     'users',
