@@ -133,7 +133,7 @@ def send_welcome_email(email, username):
             <p style="font-size: 16px; line-height: 1.8;">Start your journey with us today:</p>
 
             <div style="text-align: center; margin: 30px 0;">
-                <a href="https://careersng.netlify.app/login" style="background-color: #05057a; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
+                <a href="https://careermattersng.netlify.app/login" style="background-color: #05057a; color: #ffffff; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px;">
                     Go to Your Dashboard 🚀
                 </a>
             </div>

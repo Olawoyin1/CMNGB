@@ -3,11 +3,19 @@ from datetime import timedelta
 from decouple import config
 import os
 import dj_database_url
+import psycopg2
 
-
+# conn = psycopg2.connect(config('DATABASE_URL'))
+# print("Connected successfully!")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+import ssl
+# from psycopg2 import ssl as pgssl
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -17,7 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = config("DEBUG", default=False, cast=bool)
+
 
 ALLOWED_HOSTS = ['careermattersng.onrender.com/'] if not DEBUG else ['*']
 
@@ -100,15 +110,23 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+
+DATABASES['default']['OPTIONS'] = {
+    'sslmode': 'require',
+    'sslrootcert': '/full/path/to/root.crt'
+
+}
+
+
+# Security best practices
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+
 
 
 # Password validation
